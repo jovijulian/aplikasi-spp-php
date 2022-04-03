@@ -16,7 +16,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top ">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,30 +24,30 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index_petugas.php">Home
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index_petugas.php">Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="siswa.php">Data Siswa</a>
+                        <a class="nav-link active" href="data_siswa.php">Data Siswa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="petugas.php">Data Petugas</a>
+                        <a class="nav-link active" href="data_petugas.php">Data Petugas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kelas.php">Data Kelas</a>
+                        <a class="nav-link active" href="data_kelas.php">Data Kelas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="spp.php">Data SPP</a>
+                        <a class="nav-link active" href="data_spp.php">Data SPP</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="transaksi.php">Transaksi</a>
+                        <a class="nav-link active" href="transaksi.php">Transaksi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="history.php">Histori Pembayaran</a>
+                        <a class="nav-link active" href="history.php">Histori Pembayaran</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php" data-bs-toggle="modal"
+                        <a class="nav-link active" href="logout.php" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Logout</a>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Batal</button>
+                                            data-bs-dismiss="modal">Tidak</button>
                                         <a href="logout.php" type="button" class="btn btn-danger">Ya</a>
                                     </div>
                                 </div>
@@ -79,7 +79,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-
 </body>
 
 </html>

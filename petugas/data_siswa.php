@@ -76,7 +76,7 @@ require_once("../db/require.php");
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="simpan">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="tambah">Submit</button>
                     </div>
                     </form>
                 </div>
@@ -123,13 +123,38 @@ require_once("../db/require.php");
                     <td class="text-light"><?= $r['nama_kelas'] . " | " . $r['kompetensi_keahlian']; ?></td>
                     <td class="text-light"><?= $r['alamat']; ?></td>
                     <td class="text-light"><?= $r['no_telp']; ?></td>
-                    <td class="text-center text-light"><a href="?hapus&nisn=<?= $r['nisn']; ?>" type="button"
-                            class="btn btn-danger">Hapus</a>
+                    <td class="text-center text-light"><a href="#" type="button" class="btn btn-danger"
+                            data-bs-toggle="modal" data-bs-target="#modalHapus<?php echo $r['nisn']; ?>">Hapus</a>
                         <a href="#" type="button" class="btn btn-warning" data-bs-toggle="modal"
                             data-bs-target="#modalEdit<?php echo $r['nisn']; ?>">Edit </a>
                     </td>
+                    <!-- delete -->
+                    <div class="modal fade" id="modalHapus<?php echo $r['nisn']; ?>">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Siswa</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post">
+                                        <input type="hidden" name="nisn" value="<?= $r['nisn']; ?>">
+                                        Apakah Anda yakin menghapus siswa ini?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Tidak</button>
+                                    <button type="submit" class="btn btn-danger" name="hapus">Ya</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <!-- edit -->
-                    <div class="modal fade" id="modalEdit<?php echo $r['nisn']; ?>" tabindex="-1">
+                    <div class="modal fade" id="modalEdit<?php echo $r['nisn']; ?>">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -203,24 +228,18 @@ require_once("../db/require.php");
 
             <!-- Tampilkan tombol halaman -->
             <div>
-                <?php for($i=1; $i <= $totalHalaman; $i++): ?>
-                <a href="?hal=<?= $i; ?>" class="text-dark"><?= $i; ?></a>
-                <?php endfor; ?>
+                <nav aria-label="page" class="page">
+                    <ul class="pagination pagination-md justify-content-center ">
+                        <?php for($i=1; $i <= $totalHalaman; $i++): ?>
+                        <li class="page-item" aria-current="page">
+                            <span class="page-link bg-dark"><a href="?hal=<?= $i; ?>"><?= $i; ?></a></span>
+                        </li>
+                        <?php endfor; ?>
+                    </ul>
+                </nav>
             </div>
 
-            <!-- delete -->
-            <?php
-                if(isset($_GET['hapus'])){
-                    $nisn = $_GET['nisn'];
-                    $hapus = mysqli_query($conn, "DELETE FROM siswa WHERE nisn='$nisn'");
-                    if($hapus){
-                      echo "<script>document.location='siswa.php'</script>"  ;                      
-                    }else{
-                        echo "<script>alert('Maaf, data tersebut masih terhubung dengan data yang lain');
-                        </script>";
-                    }
-                }
-            ?>
+
 
             <!-- Selesai -->
             </table>
@@ -236,7 +255,7 @@ require_once("../db/require.php");
 </html>
 <?php
 // Proses Simpan
-if(isset($_POST['simpan'])){
+if(isset($_POST['tambah'])){
 $nisn = $_POST['nisn'];
 $nis = $_POST['nis'];
 $nama = $_POST['nama'];
@@ -247,7 +266,7 @@ $simpan = mysqli_query($conn, "INSERT INTO siswa VALUES
 ('$nisn', '$nis', '$nama', '$kelas', '$alamat', '$no')");
 if($simpan){
     echo "<script>
-    document.location='siswa.php'
+    document.location='data_siswa.php'
     </script>";
 }else{
     echo "<script>
@@ -270,10 +289,23 @@ if(isset($_POST['update'])){
                                  WHERE siswa.nisn='$nisn'");
         if($update){
             echo "<script>
-            document.location='siswa.php'
+            document.location='data_siswa.php'
             </script>";
         }else{
             echo "<script>alert('Gagal'); </script>";
         }
 }
+?>
+<!-- delete -->
+<?php
+    if(isset($_POST['hapus'])){
+        $nisn = $_POST['nisn'];
+        $hapus = mysqli_query($conn, "DELETE FROM siswa WHERE nisn='$nisn'");
+        if($hapus){
+            echo "<script>document.location='data_siswa.php'</script>"  ;                      
+        }else{
+            echo "<script>alert('Maaf, data tersebut masih terhubung dengan data yang lain');
+            </script>";
+        }
+    }
 ?>

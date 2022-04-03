@@ -30,7 +30,7 @@ if(isset($_SESSION['username'])){
 
     <div class="index">
         <div class="containeri">
-            <div class="wrap">
+            <div class="wrapAktor">
                 <span class="title">
                     Login Sebagai Petugas
                 </span>
@@ -59,7 +59,8 @@ if(isset($_SESSION['username'])){
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                         <div>
-                            <span class="txt1">
+                            <br>
+                            <span class="txt1 mb-3">
                                 Apakah anda seorang siswa?
                             </span>
                             <a class="txt1" href="../siswa/login_siswa.php">
