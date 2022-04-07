@@ -61,10 +61,10 @@ if(isset($_SESSION['username'])){
                         <div>
                             <br>
                             <span class="txt1 mb-3">
-                                Apakah anda seorang siswa?
+                                Apakah anda seorang siswa? Login
                             </span>
                             <a class="txt1" href="../siswa/login_siswa.php">
-                                Disini
+                                Disini!
                             </a>
                         </div>
                     </form>

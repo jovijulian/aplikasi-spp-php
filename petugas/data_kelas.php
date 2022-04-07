@@ -22,9 +22,9 @@ require_once("../db/require.php");
 <body>
     <?php require_once("header.php"); ?>
     <div class="container">
-        <center>
-            <h1 class="mt-5">Tabel Kelas</h1>
-        </center></br>
+
+        <h1 class="mt-5 text-center">Tabel Kelas</h1>
+        </br>
 
         <!-- //add siswa -->
         <p><a href="tambah_siswa.php" data-bs-toggle="modal" data-bs-target="#modalTambah" type="button"
@@ -173,7 +173,8 @@ require_once("../db/require.php");
                     <ul class="pagination pagination-md justify-content-center ">
                         <?php for($i=1; $i <= $totalHalaman; $i++): ?>
                         <li class="page-item" aria-current="page">
-                            <span class="page-link bg-dark"><a href="?hal=<?= $i; ?>"><?= $i; ?></a></span>
+                            <span class="page-link bg-dark"><a style="text-decoration:none"
+                                    href="?hal=<?= $i; ?>"><?= $i; ?></a></span>
                         </li>
                         <?php endfor; ?>
                     </ul>

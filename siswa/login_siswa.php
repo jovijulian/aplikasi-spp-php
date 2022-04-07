@@ -50,10 +50,10 @@ if(isset($_SESSION['nisn'])){
                         <div>
                             <br>
                             <span class="txt1">
-                                Apakah anda seorang petugas?
+                                Apakah anda seorang petugas? Login
                             </span>
                             <a class="txt1" href="../petugas/login_petugas.php">
-                                Disini
+                                Disini!
                             </a>
                         </div>
                     </form>

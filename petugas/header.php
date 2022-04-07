@@ -44,7 +44,7 @@
                         <a class="nav-link active" href="transaksi.php">Transaksi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="history.php">Histori Pembayaran</a>
+                        <a class="nav-link active" href="history.php">Cetak Transaksi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="logout.php" data-bs-toggle="modal"
