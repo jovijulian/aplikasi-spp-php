@@ -28,7 +28,7 @@ require_once("../db/require.php");
 
         <!-- //add siswa -->
         <p><a href="tambah_siswa.php" data-bs-toggle="modal" data-bs-target="#modalTambah" type="button"
-                class="btn btn-info">+ Tambah Data</a></p>
+                class="btn text-dark" style="background-color: #78938A;">+ Tambah Data</a></p>
         <div class="modal fade" id="modalTambah" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -40,15 +40,17 @@ require_once("../db/require.php");
                         <form method="post">
                             <div class="mb-3">
                                 <label for="nama_petugas" class="col-form-label">Nama Petugas</label>
-                                <input type="text" name="nama_petugas" class="form-control">
+                                <input type="text" name="nama_petugas" class="form-control"
+                                    placeholder="Input Nama Petugas">
                             </div>
                             <div class="mb-3">
                                 <label for="username" class="col-form-label">Username</label>
-                                <input type="text" name="username" class="form-control">
+                                <input type="text" name="username" class="form-control" placeholder="Input Username">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="col-form-label">Password</label>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" name="password" class="form-control"
+                                    placeholder="Input Password">
                             </div>
                     </div>
                     <div class="modal-footer">
@@ -64,7 +66,7 @@ require_once("../db/require.php");
 
         <!-- //table siswa -->
         <div class="row">
-            <table class="table table-striped bg-dark mt-2 text-light" border="1">
+            <table class="table table-striped mt-2 text-light" border="1" style="background-color: #464E2E;">
                 <thead>
                     <tr>
                         <td class="text-center" scope="col">No. </td>
@@ -184,7 +186,8 @@ require_once("../db/require.php");
                     <ul class="pagination pagination-md justify-content-center ">
                         <?php for($i=1; $i <= $jmlhHal; $i++): ?>
                         <li class="page-item" aria-current="page">
-                            <span class="page-link bg-dark"><a style="text-decoration:none"
+                            <span class="page-link" style="background-color: #78938A;"><a
+                                    style="text-decoration:none; color: white;"
                                     href="?hal=<?= $i; ?>"><?= $i; ?></a></span>
                         </li>
                         <?php endfor; ?>

@@ -28,7 +28,7 @@ require_once("../db/require.php");
 
         <!-- //add siswa -->
         <p><a href="tambah_siswa.php" data-bs-toggle="modal" data-bs-target="#modalTambah" type="button"
-                class="btn btn-info tambah">+ Tambah Data</a>
+                class="btn text-light tambah" style="background-color: #78938A;">+ Tambah Data</a>
         </p>
 
 
@@ -47,6 +47,7 @@ require_once("../db/require.php");
                                 <label for="petugas" class="col-form-label">Petugas</label>
                                 <div class="col-sm-12">
                                     <select name="petugas" class="form-select">
+                                        <option selected>Pilih Petugas</option>
                                         <?php
                                         // Kita akan ambil Nama Petugas yang ada pada tabel Petugas
                                         $petugas = mysqli_query($conn, "SELECT * FROM petugas");
@@ -61,6 +62,7 @@ require_once("../db/require.php");
                                 <label for="nama_siswa" class="col-form-label">Nama Siswa</label>
                                 <div class="col-sm-12">
                                     <select name="siswa" class="form-select">
+                                        <option selected>Pilih Siswa</option>
                                         <?php
                                     // Kita akan ambil Nama Petugas yang ada pada tabel Petugas
                                     $siswa = mysqli_query($conn, "SELECT * FROM siswa");
@@ -72,17 +74,19 @@ require_once("../db/require.php");
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="tgl" class="col-form-label">Tanggal / Bulan / Tahun</label>
+                                <label for="tgl" class="col-form-label">Tanggal</label>
                                 <select class="form-select" name="tgl_bayar">
-                                    <option selected>Tanggal</option>
+                                    <option selected>Pilih Tanggal</option>
                                     <?php
                                         for($tgl_bayar=1; $tgl_bayar<=31; $tgl_bayar++){
                                             echo "<option value=$tgl_bayar>$tgl_bayar</option>";
                                         }
                                     ?>
                                 </select>
+                                <br>
+                                <label for="bulan" class="col-form-label">Bulan</label>
                                 <select class="form-select" name="bulan_dibayar">
-                                    <option selected>Bulan</option>
+                                    <option selected> Pilih Bulan</option>
                                     <?php
                                         $bulan_dibayar=array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
                                         $jlh_bln=count($bulan_dibayar);
@@ -91,8 +95,10 @@ require_once("../db/require.php");
                                         }
                                         ?>
                                 </select>
+                                <br>
+                                <label for="tahun" class="col-form-label">Tahun</label>
                                 <select class="form-select" name="tahun_dibayar">
-                                    <option selected>Tahun</option>
+                                    <option selected>Pilih Tahun</option>
                                     <?php
                                         $now=date('Y');
                                         for ($tahun_dibayar=2018;$tahun_dibayar<=$now;$tahun_dibayar++)
@@ -106,6 +112,7 @@ require_once("../db/require.php");
                             <div class="mb-3">
                                 <label for="spp" class="col-form-label">SPP / Nominal Bayar</label>
                                 <select name="spp" class="form-select">
+                                    <option selected>Pilih SPP</option>
                                     <?php
                                         // Ambil juga data SPP
                                         $spp = mysqli_query($conn, "SELECT * FROM spp");
@@ -117,7 +124,8 @@ require_once("../db/require.php");
                             </div>
                             <div class="mb-3">
                                 <label for="jumlah_bayar" class="col-form-label">Jumlah Bayar</label>
-                                <input type="text" name="jumlah_bayar" class="form-control">
+                                <input type="text" name="jumlah_bayar" class="form-control"
+                                    placeholder="Input Jumlah Bayar">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -133,7 +141,7 @@ require_once("../db/require.php");
 
         <!-- //table transaksi -->
         <div class="row">
-            <table class="table table-striped bg-dark mt-2 text-light" border="1">
+            <table class="table table-striped mt-2 text-light" border="1" style="background-color: #464E2E;">
                 <thead>
                     <tr>
                         <td class="text-center" scope="col">No. </td>
@@ -173,7 +181,7 @@ require_once("../db/require.php");
                     <td class="text-light"><?= $r['jumlah_bayar']; ?></td>
                     <td class="text-light"><?= $r['nama_petugas']; ?></td>
                     <td>
-                        <h5 style="color: darkgreen; font-weight: bold;">LUNAS</h5>
+                        <h5 style="color: white; font-weight: bold;">LUNAS</h5>
                     </td>
                 </tr>
                 <?php $no++; } ?>
@@ -187,7 +195,8 @@ require_once("../db/require.php");
                     <ul class="pagination pagination-md justify-content-center ">
                         <?php for($i=1; $i <= $totalHalaman; $i++): ?>
                         <li class="page-item" aria-current="page">
-                            <span class="page-link bg-dark"><a style="text-decoration:none"
+                            <span class="page-link" style="background-color: #78938A;"><a
+                                    style="text-decoration:none; color: white;"
                                     href="?hal=<?= $i; ?>"><?= $i; ?></a></span>
                         </li>
                         <?php endfor; ?>

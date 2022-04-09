@@ -33,16 +33,21 @@ require_once("../db/require.php");
 
         <!-- //search -->
         <form action="#" method="POST">
-            <button type="button" class="btn btn-success" onclick="printPage()">Cetak
+            <div class="input-group  justify-content-end">
+                <div class="form-outline">
+                    <input type="search" style="border: 2px solid black;" name="nisn" placeholder="Input NISN"
+                        class="form-control" autofocus />
+                </div>
+                <button type="submit" style="background-color: #78938A;" name="cari" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-search"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </div>
+            <button type="button" class="btn text-light" style="background-color: #78938A;" onclick="printPage()">Cetak
             </button>
-            <button class="btn btn-danger float-end" type="submit" name="cari">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-            </button><input class="btn text-light btn-dark float-end" type="text" name="nisn" placeholder="Input NISN"
-                autofocus>
         </form>
         <hr>
         <?php
@@ -93,7 +98,7 @@ require_once("../db/require.php");
 
             <!-- //table transaksi -->
             <div class="row">
-                <table class="table table-striped bg-dark mt-2 text-light" border="1">
+                <table class="table table-striped mt-2 text-light" border="1" style="background-color: #464E2E;">
                     <thead>
                         <tr>
                             <td class="text-center" scope="col">No. </td>
@@ -115,7 +120,7 @@ require_once("../db/require.php");
                         <td class="text-light"><?= $isi['jumlah_bayar']; ?></td>
                         <td class="text-light"><?= $isi['nama_petugas']; ?></td>
                         <td>
-                            <h5 style="color: darkgreen; font-weight: bold;">LUNAS</h5>
+                            <h5 style="color: white; font-weight: bold;">LUNAS</h5>
                         </td>
                     </tr>
                     <?php $no++; } ?>

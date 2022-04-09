@@ -21,7 +21,7 @@ if(isset($_SESSION['nisn'])){
     <link rel="stylesheet" href="../css/style.css">
     <style>
     body {
-        background-color: #57B846;
+        background-color: #78938A;
     }
     </style>
 </head>
@@ -44,7 +44,7 @@ if(isset($_SESSION['nisn'])){
                                         d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                 </svg>
                             </span>
-                            <input type="text" class="form-control" placeholder="NISN">
+                            <input type="text" class="form-control" placeholder="NISN" name="nisn">
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                         <div>

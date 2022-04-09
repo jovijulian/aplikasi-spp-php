@@ -28,7 +28,7 @@ require_once("../db/require.php");
 
         <!-- //add siswa -->
         <p><a href="tambah_siswa.php" data-bs-toggle="modal" data-bs-target="#modalTambah" type="button"
-                class="btn btn-info">+ Tambah Data</a></p>
+                class="btn text-light" style="background-color: #78938A;">+ Tambah Data</a></p>
         <div class="modal fade" id="modalTambah" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -40,20 +40,21 @@ require_once("../db/require.php");
                         <form method="post">
                             <div class="mb-3">
                                 <label for="nisn" class="col-form-label">NISN</label>
-                                <input type="text" name="nisn" class="form-control">
+                                <input type="text" name="nisn" class="form-control" placeholder="Input NISN">
                             </div>
                             <div class="mb-3">
                                 <label for="nis" class="col-form-label">NIS</label>
-                                <input type="text" name="nis" class="form-control">
+                                <input type="text" name="nis" class="form-control" placeholder="Input NIS">
                             </div>
                             <div class="mb-3">
                                 <label for="nama" class="col-form-label">Nama Siswa</label>
-                                <input type="text" name="nama" class="form-control">
+                                <input type="text" name="nama" class="form-control" placeholder="Input Nama Siswa">
                             </div>
                             <div class="mb-3">
                                 <label for="input1" class="col-sm-2 control-label">Kelas</label>
                                 <div class="col-sm-12">
-                                    <select name="kelas" class="form-control">
+                                    <select name="kelas" class="form-select">
+                                        <option selected>Pilih Kelas</option>
                                         <?php
                                             $kelas = mysqli_query($conn, "SELECT * FROM kelas");
                                             while($r = mysqli_fetch_assoc($kelas)){ 
@@ -67,11 +68,12 @@ require_once("../db/require.php");
                             </div>
                             <div class="mb-3">
                                 <label for="alamat" class="col-form-label">Alamat:</label>
-                                <textarea name="alamat" class="form-control"></textarea>
+                                <textarea name="alamat" class="form-control" placeholder="Input Alamat"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="no_telp" class="col-form-label">No. Handphone</label>
-                                <input type="text" name="no_telp" class="form-control">
+                                <input type="text" name="no_telp" class="form-control"
+                                    placeholder="Input Nomor Handphone">
                             </div>
                     </div>
                     <div class="modal-footer">
@@ -87,7 +89,7 @@ require_once("../db/require.php");
 
         <!-- //table siswa -->
         <div class="row">
-            <table class="table table-striped bg-dark mt-2 text-light" border="1">
+            <table class="table table-stripe text-light mt-2 " border="1" style="background-color: #464E2E;">
                 <thead>
                     <tr>
                         <td class="text-center" scope="col">No. </td>
@@ -232,7 +234,8 @@ require_once("../db/require.php");
                     <ul class="pagination pagination-md justify-content-center ">
                         <?php for($i=1; $i <= $totalHalaman; $i++): ?>
                         <li class="page-item" aria-current="page">
-                            <span class="page-link bg-dark"><a style="text-decoration:none"
+                            <span class="page-link text-light" style="background-color: #78938A;"><a
+                                    style="text-decoration:none; color: white;"
                                     href="?hal=<?= $i; ?>"><?= $i; ?></a></span>
                         </li>
                         <?php endfor; ?>

@@ -21,7 +21,7 @@ if(isset($_SESSION['username'])){
     <link rel="stylesheet" href="../css/style.css">
     <style>
     body {
-        background-color: #57B846;
+        background-color: #78938A;
     }
     </style>
 </head>
